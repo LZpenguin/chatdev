@@ -41,15 +41,19 @@ ChatChain.prototype.step = async function () {
         let res = await instructor.speak(assistant, stepInfo.command)
         this.stepIndex++
         return {
-            name: stepInfo.instructor_name,
+            speaker: instructor.name,
+            listener: assistant.name,
             content: res
         }
     }
 }
 
-ChatChain.prototype.start = async function (assistant_name, command) {
-    let assistant = this.members[assistant_name]
-    await assistant.speak(null, command)
+ChatChain.prototype.reset = async function () {
+    Object.keys(this.members).forEach(name => {
+        let chatrole = this.members[name]
+        chatrole.clearMemory()
+    })
+    this.init && this.init()
 }
 
 export default ChatChain

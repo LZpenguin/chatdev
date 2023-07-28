@@ -24,11 +24,15 @@ ChatRole.prototype.speak = async function (listener, command) {
         })
         .join('\n')
     msgList.push({ role: 'user', content: "Here are some conversations you've had with others:\n" + memory })
-    msgList.push({ role: 'user', content: command + '\nyour answer should be from a first-person perspective and not contain colons\nlimit your answer in 100 words' })
+    msgList.push({ role: 'user', content: command + '\nyour answer should be from a first-person perspective and not contain colons' })
     let res = await openai.chatgpt(msgList)
     this.listen(this.name, res)
     listener && listener.listen(this.name, res)
     return res
+}
+
+ChatRole.prototype.clearMemory = function () {
+    this.memory = []
 }
 
 export default ChatRole

@@ -35,3 +35,37 @@
     height: 100%;
     padding: 20px;
 }
+.right button {
+    margin-right: 20px;
+}
+.right .map {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin-bottom: 20px;
+    border: 1px solid #000;
+}
+.right .map .player {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+}
+.right .map .empty {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+}
+.right .map .speaker {
+    position: absolute;
+    left: 20px;
+    bottom: 90px;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+}

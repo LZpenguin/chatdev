@@ -25,6 +25,10 @@ function chain_SC(requirement) {
     chain.addStep(tester, CTO, 'According to the requirements told by the CTO, check the code sent to you by the coder and report the problems of the code in sections')
     chain.addStep(null, null, 'goto 4')
 
+    chain.init = () => {
+        CTO.listen(client.name, requirement)
+    }
+
     return chain
 }
 
