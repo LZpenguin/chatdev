@@ -15,6 +15,7 @@ ChatRole.prototype.speak = async function (listener, command) {
     let msgList = [{ role: 'system', content: roles[this.role] }]
     console.log(this.memory)
     let memory = this.memory
+        .slice(-2)
         .map(item => {
             if (item.speaker === this.name + '(' + this.role + ')') {
                 return 'yourself(' + this.role + '): ' + item.content

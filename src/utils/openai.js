@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apikey = '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'
+const apikey = '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'
 
 const chatgpt = messages => {
     return axios
